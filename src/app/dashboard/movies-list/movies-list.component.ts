@@ -32,19 +32,20 @@ export class MoviesListComponent implements OnInit {
   onResize(event) {
     let screenSize=event.target.innerWidth;
     this.getScreenSize(screenSize);
+
   }
   getScreenSize(width: number){
     debugger
     if (width < 576) {
       this.sum = 3; 
-      this.getMovieDetails();
     } else if (width >= 576 && width < 768) {    
       this.sum = 4;
-      this.getMovieDetails();
-    } else if (width >= 768 && width <= 1600) {   
+    } else if (width >= 768 && width <= 992) {   
+      this.sum = 8;
+    } else if (width >= 992 && width <= 1600) {   
       this.sum = 6;
-      this.getMovieDetails();
-    } else {
+    }
+    else {
       console.log(width);
     }
   }
