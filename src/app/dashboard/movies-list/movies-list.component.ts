@@ -71,7 +71,7 @@ export class MoviesListComponent implements OnInit {
   
   onScrollDown(ev) {     
     this.start = this.sum;  
-    this.sum += 20;  
+    this.sum += this.start;  
     this.getMovieDetails();  
     this.direction = "down";  
   }  
