@@ -37,11 +37,13 @@ export class MoviesListComponent implements OnInit {
     debugger
     if (width < 576) {
       this.sum = 3; 
-      this.getMovieDetails
+      this.getMovieDetails();
     } else if (width >= 576 && width < 768) {    
       this.sum = 4;
+      this.getMovieDetails();
     } else if (width >= 768 && width <= 1600) {   
       this.sum = 6;
+      this.getMovieDetails();
     } else {
       console.log(width);
     }
