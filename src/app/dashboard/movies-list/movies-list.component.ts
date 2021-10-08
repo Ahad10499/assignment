@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MovieDbService } from '../../services/movie-db.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { MovieDbService } from '../../services/movie-db.service';
 })
 export class MoviesListComponent implements OnInit {
   movieDeailsList = [];  
-  sum = 10;  
+  sum :number;  
+  screenWidth : any;
   throttle = 300;  
   scrollDistance = 1;  
   scrollUpDistance = 2;  
@@ -21,10 +22,32 @@ export class MoviesListComponent implements OnInit {
   }  
   
   ngOnInit() {  
+    this.screenWidth = window.innerWidth;
+    console.log(this.screenWidth)
+    this.getScreenSize(this.screenWidth);
     this.getMovieDetails();  
-  }  
- 
+  }
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    let screenSize=event.target.innerWidth;
+    this.getScreenSize(screenSize);
+    console.log(event.target.innerWidth)
+  }
+  getScreenSize(width: number){
+    debugger
+    if (width < 576) {
+      this.sum = 3; 
+    } else if (width >= 576 && width < 768) {    
+      this.sum = 4;
+    } else if (width >= 768 && width <= 1600) {   
+      this.sum = 6;
+    } else {
+      console.log(width);
+    }
+  }
   getMovieDetails() {  
+ 
     this.movieDbService.getdata('movie', this.sum).subscribe((response) => { 
       console.log(response)  
       this.photos = response.photos;  
