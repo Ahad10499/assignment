@@ -1,0 +1,22 @@
+
+<h1 align='center' >Infinite movies picture scroller</h1>    
+<div class="search-results"    
+      infinite-scroll    
+      [infiniteScrollDistance]="scrollDistance"    
+      [infiniteScrollUpDistance]="scrollUpDistance"    
+      [infiniteScrollThrottle]="throttle"    
+      (scrolled)="onScrollDown()">    
+      <div class="container">    
+        <div class="row">    
+          <div *ngFor="let list of movieDeailsList;let i=index" class="col-sm-4">    
+            <div style="margin-top: 10px;" class="card">    
+              <img class="card-img-top" [src]="list.src.landscape" alt="Card image cap">    
+              <div class="card-body">    
+                <h5 class="card-title">{{list.photographer}}</h5>    
+                <a href="#" class="btn btn-primary">Know more</a>    
+              </div>    
+            </div>    
+          </div>    
+        </div>    
+      </div>    
+</div>    
