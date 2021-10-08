@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
- 
+import { HttpHeaderInterceptor } from './http-header-interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -17,10 +17,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule
   ],
-  exports: [
-  ],
   providers: [
-    NgbModule 
+     {
+       provide: HTTP_INTERCEPTORS, useClass: HttpHeaderInterceptor, multi: true
+     },
+    NgbModule   
 ],
   bootstrap: [AppComponent]
 })

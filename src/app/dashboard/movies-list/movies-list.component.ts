@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
-import { MovieDbService } from 'src/app/services/movie-db.service';
+import { MovieDbService } from '../../services/movie-db.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -24,8 +23,9 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {  
     this.getMovieDetails();  
   }  
+ 
   getMovieDetails() {  
-    this.movieDbService.getdata('movie', this.sum).subscribe((response: any) => { 
+    this.movieDbService.getdata('movie', this.sum).subscribe((response) => { 
       console.log(response)  
       this.photos = response.photos;  
       this.addItems(this.start, this.sum);  
@@ -40,13 +40,10 @@ export class MoviesListComponent implements OnInit {
     for (let i = index; i < sum; ++i) {  
       // debugger  
       this.movieDeailsList.push(this.photos[i]);  
-      // console.log(this.array);  
-  
     }  
   }  
   
-  onScrollDown(ev) {    
-    // add another 20 items  
+  onScrollDown(ev) {     
     this.start = this.sum;  
     this.sum += 20;  
     this.getMovieDetails();  
