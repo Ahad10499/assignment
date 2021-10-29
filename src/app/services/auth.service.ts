@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable ,of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,9 @@ export class AuthService {
   isUserLogin : boolean = false;
   private dataSource= new BehaviorSubject<any>(null)
   data= this.dataSource.asObservable();
-  constructor() { }
+
+  apiUrl="http://localhost:3000/users";
+  constructor(private http: HttpClient) { }
 
   login(userName: string, password: number): Observable<any> { 
     console.log(userName);
@@ -31,5 +34,10 @@ export class AuthService {
   }
   updateChangesData(value: any){
     this.dataSource.next(value);
+  }
+
+  registerUser(registerData: any): Observable<any>{
+    debugger
+  return this.http.post(`${this.apiUrl}`,registerData);
   }
 }

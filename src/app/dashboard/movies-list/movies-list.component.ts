@@ -1,4 +1,5 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Subscriber, Subscription } from 'rxjs';
 import { MovieDbService } from '../../services/movie-db.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { MovieDbService } from '../../services/movie-db.service';
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.css']
 })
-export class MoviesListComponent implements OnInit {
+export class MoviesListComponent implements OnInit, OnDestroy {
   movieDeailsList = [];  
   sum :number;  
   screenWidth : any;
@@ -16,6 +17,7 @@ export class MoviesListComponent implements OnInit {
   direction = "";  
   modalOpen = false;  
   photos: any;  
+  dataUnsubscribe: Subscription;
   start: number = 0;  
   
   constructor(private movieDbService: MovieDbService) {  
@@ -51,7 +53,7 @@ export class MoviesListComponent implements OnInit {
   }
   getMovieDetails() {  
  
-    this.movieDbService.getdata('movie', this.sum).subscribe((response) => { 
+   this.dataUnsubscribe=this.movieDbService.getdata('movie', this.sum).subscribe((response) => { 
       console.log(response)  
       this.photos = response.photos;  
       this.addItems(this.start, this.sum);  
@@ -75,5 +77,12 @@ export class MoviesListComponent implements OnInit {
     this.getMovieDetails();  
     this.direction = "down";  
   }  
+
+  ngOnDestroy(){
+    if(this.dataUnsubscribe){
+      this.dataUnsubscribe.unsubscribe();
+      console.log(this.dataUnsubscribe);
+    }
+  }
   
 }

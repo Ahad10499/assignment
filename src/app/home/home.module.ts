@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { DashboardModule } from '../dashboard/dashboard.module'
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
-import { RegisterComponent } from './register/register.component';
-
+import { RegisterModule } from './register/register.module'
 
 @NgModule({
-  declarations: [HomeComponent,RegisterComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    DashboardModule
+    DashboardModule,
+    RegisterModule
   ],
   exports:[
     HomeComponent

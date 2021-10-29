@@ -7,9 +7,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpHeaderInterceptor } from './http-header-interceptor';
 import { HomeModule } from '../app/home/home.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginModule } from '../app/home/login/login.module';
 import { AuthGuardGuard } from './auth-guard.guard';
+
 
 
 @NgModule({
@@ -20,10 +20,7 @@ import { AuthGuardGuard } from './auth-guard.guard';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
-    HomeModule,
-    LoginModule,
-    DashboardModule
+    NgbModule
   ],
   providers: [
      {

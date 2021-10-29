@@ -20,6 +20,10 @@ const routes: Routes = [
 
 },
 {
+  path: 'register',
+  loadChildren: () =>import('./home/register/register.module').then(m => m.RegisterModule) 
+},
+{
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'

@@ -1,1 +1,23 @@
-<p>register works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" style="padding-top: 20px;">
+            <div class="container box" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)" class="form-signin">
+                            <h2 class="form-signin-heading">Please sign up</h2>
+                            <label for="userName" class="sr-only">User Name </label>
+                            <input type="text" id="userName" formControlName="name"><br>
+                            <label for="phoneNo"  class="sr-only">Phone No</label>
+                            <input type="text" id="phoneNo" formControlName="phoneNo"><br>
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Sign Up
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

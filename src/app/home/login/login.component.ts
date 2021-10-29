@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service'
 })
 export class LoginComponent implements OnInit {
 
-  userName : string;
+  _userName : string;
   password : number;
   loginForm : FormGroup;
   result: any;
@@ -29,9 +29,9 @@ this.loginForm = new FormGroup({
 
 onClickSubmit(loginValue){
   let result= this.loginForm.value;
-this.userName= loginValue.userName;
+this._userName= loginValue.userName;
 this.password= loginValue.password;
-this.authService.login(this.userName, this.password).subscribe(
+this.authService.login(this._userName, this.password).subscribe(
   data =>{
     debugger
     console.log('is login success:'+ data);
