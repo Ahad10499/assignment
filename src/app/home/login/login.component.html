@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" style="padding-top: 20px;">
+            <div class="container box" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
+                <div class="row">
+                    <div class="col-12" style="text-align: center;">
+                        <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit(loginForm.value)" class="form-signin">
+                            <h2 class="form-signin-heading">Please sign in</h2>
+                            <label for="userName" class="sr-only">User Name </label>
+                            <input type="text" id="userName" formControlName="userName">
+                            <label for="passwor"  class="sr-only">Password</label>
+                            <input type="text" id="password" formControlName="password">
+                            <button class="btn btn-primary btn-block" type="submit">
+                                Sign in
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

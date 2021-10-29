@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
   <div class="container">
-    <a class="navbar-brand" href="#">Assignment</a>
+    <a class="navbar-brand">Assignment</a>
     <button class="navbar-toggler collapsed " type="button" data-toggle="collapse" data-target="#Navbar"
       aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,8 +11,18 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="dashboard" routerLinkActive="active">Dashboard</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
+          <div *ngIf="isUserLogin">
           <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div *ngIf="isUserLogin; else isLogOut">
+                <a class="nav-link" (click)="logout()">Logout</a>
+          </div>
+          <ng-template  #isLogOut>
+             <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+          </ng-template>
         </li>
       </ul>
     </div>

@@ -10,7 +10,7 @@ export class MoviesListComponent implements OnInit {
   movieDeailsList = [];  
   sum :number;  
   screenWidth : any;
-  throttle = 300;  
+  throttle = 100;  
   scrollDistance = 1;  
   scrollUpDistance = 2;  
   direction = "";  
