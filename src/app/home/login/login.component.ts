@@ -28,7 +28,6 @@ this.loginForm = new FormGroup({
   }
 
 onClickSubmit(loginValue){
-  let result= this.loginForm.value;
 this._userName= loginValue.userName;
 this.password= loginValue.password;
 this.authService.login(this._userName, this.password).subscribe(

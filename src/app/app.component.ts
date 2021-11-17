@@ -13,11 +13,10 @@ export class AppComponent {
   constructor(public authService: AuthService, private router: Router){ }
   // isUserLogin :boolean= this.authService.isUserLogin;
   ngOnInit(){
-    debugger
   this.authService.data.subscribe(res =>{
     this.isUserLogin= res;
   })
-debugger
+
  let storeData= localStorage.getItem('isUserLogin');
  if(storeData){
    this.router.navigate(['/home']);

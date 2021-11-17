@@ -1,0 +1,62 @@
+.base {
+    background: darkslategray;
+    margin-top: 5vh;
+    border: 3px solid black;
+    width: 100%;
+}
+
+.maindisplay {
+    background: lightgrey;
+    height: 20vh;
+    padding: 5% !important;
+    font-size: 3rem;
+    text-align: right;
+    font-family: Courier, monospace;
+    overflow: auto;
+}
+
+.subdisplay {
+    border-bottom: 0.5px solid black;
+    height: 30%;
+    font-size: 1.3rem;
+    overflow: auto;
+}
+
+.keypad {
+    height: calc(200% / 3);
+}
+
+.keys {
+    margin: 0;
+    height: 20%;
+    color: lightgray; 
+    padding: 5%;
+    font-size: 2rem;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.keys:hover {
+    opacity: 1;
+}
+
+.ackey {
+    color: red;
+    background: black;
+}
+
+.equalkey {
+    color: white;
+    background-color: orangered; 
+}
+
+.numkey {
+    color: black;
+    background: lightgray;
+}
+
+.opkey {
+    color: white;
+    background-color: black; 
+}

@@ -14,6 +14,21 @@
       "name": "admin",
       "phoneNo": "1234324522",
       "id": 3
+    },
+    {
+      "name": "admin",
+      "phoneNo": "123455",
+      "id": 4
+    },
+    {
+      "name": "abdul",
+      "password": "1234",
+      "id": 5
+    },
+    {
+      "name": "abd",
+      "password": "123",
+      "id": 6
     }
   ]
 }

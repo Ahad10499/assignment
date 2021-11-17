@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
   registerForm;
@@ -13,12 +14,14 @@ export class RegisterComponent implements OnInit {
   result: any;
 
   constructor(private fb: FormBuilder,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private toastr: ToastrService
+   ) { }
 
   ngOnInit() {
     this.registerForm= this.fb.group({
-      "name": ['',[Validators.required]],
-      "phoneNo": ['',[Validators.required]]
+      "name": [''],
+      "password": ['']
     })
   }
 
@@ -27,7 +30,9 @@ export class RegisterComponent implements OnInit {
     console.log(this.userName);
     this.authService.registerUser(this.userName).subscribe((res) =>{
       this.result=res;
+      this.toastr.success('you are register successfully');
     })
+    this.ngOnInit();
   }
 
 }

@@ -17,10 +17,9 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(userName: string, password: number): Observable<any> { 
-    console.log(userName);
-    console.log(password);
     this.isUserLogin= userName == 'admin' && password == 1234;    
       localStorage.setItem('isUserLogin', this.isUserLogin ? 'true' : 'false');    
+      localStorage.setItem('token', '1426420800');
     return of(this.isUserLogin).pipe(tap(val => {
       console.log('is user authentication:' + val);
     }))
@@ -38,6 +37,12 @@ export class AuthService {
 
   registerUser(registerData: any): Observable<any>{
     debugger
+    localStorage.setItem('token', '1426420800');
   return this.http.post(`${this.apiUrl}`,registerData);
+
+  }
+
+  getToken(){
+    localStorage.getItem('token');
   }
 }

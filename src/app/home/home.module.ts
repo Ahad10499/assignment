@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardModule } from '../dashboard/dashboard.module'
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home/home.component';
-import { RegisterModule } from './register/register.module'
+import { RegisterModule } from './register/register.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -11,7 +11,6 @@ import { RegisterModule } from './register/register.module'
     CommonModule,
     HomeRoutingModule,
     DashboardModule,
-    RegisterModule
   ],
   exports:[
     HomeComponent

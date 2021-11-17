@@ -9,18 +9,26 @@ import { HttpHeaderInterceptor } from './http-header-interceptor';
 import { HomeModule } from '../app/home/home.module';
 import { LoginModule } from '../app/home/login/login.module';
 import { AuthGuardGuard } from './auth-guard.guard';
-
+import { RegisterModule } from './home/register/register.module';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalculatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    RegisterModule,
+    HomeModule,
+    LoginModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
      {

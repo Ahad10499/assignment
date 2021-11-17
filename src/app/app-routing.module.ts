@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { CalculatorComponent } from './calculator/calculator.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,11 @@ const routes: Routes = [
 {
   path: 'register',
   loadChildren: () =>import('./home/register/register.module').then(m => m.RegisterModule) 
+},
+
+{
+  path: 'calculator',
+  component: CalculatorComponent
 },
 {
     path: '',
